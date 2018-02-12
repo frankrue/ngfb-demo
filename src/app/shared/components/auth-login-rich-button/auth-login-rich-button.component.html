@@ -1,0 +1,11 @@
+<ng-template [ngIf]="!(authService.isLoggedIn | async)">
+  <button class="btn btn-outline-primary" type="button" (click)="authService.login(navigateTo)">Log In</button>
+</ng-template>
+<ng-template [ngIf]="(authService.isLoggedIn | async)">
+  <div ngbDropdown placement="bottom-right" class="nav-item" *ngIf="(authService.user | async) as user">
+    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{ user.email }}</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <button class="dropdown-item" (click)="authService.logout()">Log Out</button>
+    </div>
+  </div>
+</ng-template>

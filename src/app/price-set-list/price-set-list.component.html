@@ -1,0 +1,24 @@
+<div class="container pt-3">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Created</th>
+        <th>Status</th>
+        <th class="text-center">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of pricesets | async" [class]="p.status">
+        <td width="100%" class="align-middle text-nowrap">{{ p.name }}</td>
+        <td width="1%" class="align-middle text-nowrap">{{ p.createdAt | date:'short' }}</td>
+        <td width="1%" class="align-middle text-nowrap">{{ p.status }}</td>
+        <td width="1%" class="align-middle text-nowrap text-center">
+          <button (click)="changeStatus(p, 'released')" class="btn-release btn-outline-success btn-sm">RELEASE</button>
+          <button (click)="changeStatus(p, 'deactivated')" class="btn-deactivate btn-outline-danger btn-sm">DEACTIVATE</button>
+          <button (click)="clone(p)" class="btn-clone btn-outline-primary btn-sm">CLONE</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

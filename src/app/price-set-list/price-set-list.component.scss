@@ -1,0 +1,23 @@
+%disabled {
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+tr.deactivated {
+  td {
+    background: #ddd;
+    color: #999;
+  }
+  .btn-deactivate {
+    @extend %disabled;
+  }
+}
+
+tr.released {
+  td {
+    font-weight: bold;
+  }
+  .btn-release {
+    @extend %disabled;
+  }
+}
